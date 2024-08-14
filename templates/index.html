@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Details</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Enter Your Email</h1>
+    <form method="POST">
+        <input type="email" name="email" required placeholder="Enter your email">
+        <button type="submit">Submit</button>
+    </form>
+
+    {% if user_details %}
+    <h2>Your Details</h2>
+    <p>Name: {{ user_details['Name'] }}</p>
+    <p>Roll Number: {{ user_details['Roll Number'] }}</p>
+    <p>Batch: {{ user_details['Batch'] }}</p>
+    <p>Phone Number: {{ user_details['Phone Number'] }}</p>
+
+    <form method="POST" action="/update">
+        <input type="text" name="student_id" placeholder="Enter Student ID" required>
+        <input type="text" name="name" placeholder="Enter New Name">
+        <input type="email" name="email" placeholder="Enter New Email">
+        <button type="submit">Update</button>
+    </form>
+    
+    {% elif user_details is none and email %}
+    <p>No data found for the entered email.</p>
+    {% endif %}
+</body>
+</html>
