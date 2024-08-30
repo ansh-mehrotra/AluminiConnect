@@ -1,5 +1,5 @@
 
-from flask import Flask, request, jsonify, render_template
+from flask import Flask, request,redirect,url_for, jsonify, render_template
 import pandas as pd
 
 app = Flask(__name__)
@@ -77,6 +77,60 @@ def get_details():
         return jsonify({'success': True, 'details': user_details})
     else:
         return jsonify({'success': False, 'message': 'No matching records found'}), 404
+
+
+
+@app.route('/update-details', methods=['POST'])
+def update_details():
+    email = request.form.get('email').strip()
+    dob = request.form.get('dob').strip()
+    fathers_name = request.form.get('fathers_name').strip()
+
+    new_data = {
+        'Name': request.form.get('name'),
+        'Batch': request.form.get('batch'),
+        'Roll Number': request.form.get('roll_number'),
+        'Program Name': request.form.get('program_name'),
+        'Branch': request.form.get('branch'),
+        'Passout Year': request.form.get('passout_year'),
+        'DOB': request.form.get('dob'),
+        'Email': request.form.get('email'),
+        'Phone Number': request.form.get('phone_number'),
+        'WhatsApp Number': request.form.get('whatsapp_number'),
+        'Current Designation': request.form.get('current_designation'),
+        'Current Company': request.form.get('current_company'),
+        'Current City': request.form.get('current_city'),
+        'Current Country': request.form.get('current_country'),
+        'LinkedIn': request.form.get('linkedin'),
+        'Father Name': request.form.get('fathers_name'),
+        'Home State': request.form.get('home_state')
+    }
+
+    print(f"Updating record for dob={dob}, fathers_name={fathers_name}, email={email} with new_data={new_data}")
+
+    df = load_data()
+
+    df['DOB'] = df['DOB'].astype(str).str.strip()
+    df['Father Name'] = df['Father Name'].astype(str).str.strip()
+
+    if email:
+        user_data = df[df['Email'].str.strip() == email]
+    elif dob and fathers_name:
+        user_data = df[(df['DOB'] == dob) & (df['Father Name'] == fathers_name)]
+    else:
+        return jsonify({'success': False, 'message': 'No valid search criteria provided'}), 400
+
+    if not user_data.empty:
+        index = user_data.index[0]
+        df.loc[index, new_data.keys()] = pd.Series(new_data)
+
+        save_data(df)
+
+        return jsonify({'success': True, 'message': 'Record updated successfully'})
+    else:
+        return jsonify({'success': False, 'message': 'No matching records found'}), 404
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)

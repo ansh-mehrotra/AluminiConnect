@@ -44,3 +44,43 @@ document.getElementById('emailForm').addEventListener('submit', function(event) 
             console.error('Error fetching data:', error);
         });
 });
+
+document.getElementById('updateForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const formData = new FormData();
+
+    formData.append('name', document.getElementById('name').innerText);
+    formData.append('batch', document.getElementById('batch').innerText);
+    formData.append('roll_number', document.getElementById('roll_number').innerText);
+    formData.append('program_name', document.getElementById('program_name').innerText);
+    formData.append('branch', document.getElementById('branch').innerText);
+    formData.append('passout_year', document.getElementById('passout_year').innerText);
+    formData.append('dob', document.getElementById('dob_display').innerText);
+    formData.append('email', document.getElementById('email_display').innerText);
+    formData.append('phone_number', document.getElementById('phone_number').innerText);
+    formData.append('whatsapp_number', document.getElementById('whatsapp_number').innerText);
+    formData.append('current_designation', document.getElementById('current_designation').innerText);
+    formData.append('current_company', document.getElementById('current_company').innerText);
+    formData.append('current_city', document.getElementById('current_city').innerText);
+    formData.append('current_country', document.getElementById('current_country').innerText);
+    formData.append('linkedin', document.getElementById('linkedin').innerText);
+    formData.append('fathers_name', document.getElementById('fathers_name_display').innerText);
+    formData.append('home_state', document.getElementById('home_state').innerText);
+
+    fetch('/update-details', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert('Record updated successfully!');
+        } else {
+            alert('Failed to update the record: ' + data.message);
+        }
+    })
+    .catch(error => {
+        console.error('Error updating data:', error);
+    });
+});
