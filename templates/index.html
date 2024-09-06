@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,63 +15,48 @@
         <label for="dob">Date of Birth (YYYY-MM-DD):</label>
         <input type="text" id="dob" name="dob" value="{{ dob }}">
     
-        <label for="fathers_name">Father Name:</label>
+        <label for="fathers_name">Father's Name:</label>
         <input type="text" id="fathers_name" name="fathers_name" value="{{ fathers_name }}">
     
         <input type="submit" value="Search">
     </form>
 
-    
-
-
-
-
-
-    
-    <!-- <div id="details" style="display: none;">
-        <p>Name: <span id="name" contenteditable="true">{{ user_details['Name'] }}</span></p>
-        <p>Batch: <span id="batch" contenteditable="true">{{ user_details['Batch'] }}</span></p>
-        <p>Roll Number: <span id="roll_number" contenteditable="true">{{ user_details['Roll Number'] }}</span></p>
-        <p>Program Name: <span id="program_name" contenteditable="true">{{ user_details['Program Name'] }}</span></p>
-        <p>Branch: <span id="branch" contenteditable="true">{{ user_details['Branch'] }}</span></p>
-        <p>Passout Year: <span id="passout_year" contenteditable="true">{{ user_details['Passout Year'] }}</span></p>
-        <p>DOB: <span id="dob_display" contenteditable="true">{{ user_details['DOB'] }}</span></p>
-        <p>Email: <span id="email_display" contenteditable="true">{{ user_details['Email'] }}</span></p>
-        <p>Phone Number: <span id="phone_number" contenteditable="true">{{ user_details['Phone Number'] }}</span></p>
-        <p>WhatsApp Number: <span id="whatsapp_number" contenteditable="true">{{ user_details['WhatsApp Number'] }}</span></p>
-        <p>Current Designation: <span id="current_designation" contenteditable="true">{{ user_details['Current Designation'] }}</span></p>
-        <p>Current Company: <span id="current_company" contenteditable="true">{{ user_details['Current Company'] }}</span></p>
-        <p>Current City: <span id="current_city" contenteditable="true">{{ user_details['Current City'] }}</span></p>
-        <p>Current Country: <span id="current_country" contenteditable="true">{{ user_details['Current Country'] }}</span></p>
-        <p>LinkedIn: <a id="linkedin" contenteditable="true" href="{{ user_details['LinkedIn'] }}" target="_blank">{{ user_details['LinkedIn'] }}</a></p>
-        <p>Father Name: <span id="fathers_name_display" contenteditable="true">{{ user_details['Father Name'] }}</span></p>
-        <p>Home State: <span id="home_state" contenteditable="true">{{ user_details['Home State'] }}</span></p>
-        <button id="updateButton">Update</button>
-    </div> -->
-
     <div id="details" style="display: none;">
         <form id="updateForm">
-            <p>Name: <span id="name" contenteditable="true">{{ user_details['Name'] }}</span></p>
-            <p>Batch: <span id="batch" contenteditable="true">{{ user_details['Batch'] }}</span></p>
-            <p>Roll Number: <span id="roll_number" contenteditable="true">{{ user_details['Roll Number'] }}</span></p>
-            <p>Program Name: <span id="program_name" contenteditable="true">{{ user_details['Program Name'] }}</span></p>
-            <p>Branch: <span id="branch" contenteditable="true">{{ user_details['Branch'] }}</span></p>
-            <p>Passout Year: <span id="passout_year" contenteditable="true">{{ user_details['Passout Year'] }}</span></p>
-            <p>DOB: <span id="dob_display" contenteditable="true">{{ user_details['DOB'] }}</span></p>
-            <p>Email: <span id="email_display" contenteditable="true">{{ user_details['Email'] }}</span></p>
-            <p>Phone Number: <span id="phone_number" contenteditable="true">{{ user_details['Phone Number'] }}</span></p>
-            <p>WhatsApp Number: <span id="whatsapp_number" contenteditable="true">{{ user_details['WhatsApp Number'] }}</span></p>
-            <p>Current Designation: <span id="current_designation" contenteditable="true">{{ user_details['Current Designation'] }}</span></p>
-            <p>Current Company: <span id="current_company" contenteditable="true">{{ user_details['Current Company'] }}</span></p>
-            <p>Current City: <span id="current_city" contenteditable="true">{{ user_details['Current City'] }}</span></p>
-            <p>Current Country: <span id="current_country" contenteditable="true">{{ user_details['Current Country'] }}</span></p>
-            <p>LinkedIn: <a id="linkedin" contenteditable="true" href="{{ user_details['LinkedIn'] }}" target="_blank">{{ user_details['LinkedIn'] }}</a></p>
-            <p>Father Name: <span id="fathers_name_display" contenteditable="true">{{ user_details['Father Name'] }}</span></p>
-            <p>Home State: <span id="home_state" contenteditable="true">{{ user_details['Home State'] }}</span></p>
+            <p>Enrollment No: <span id="enrollment_no" contenteditable="true">{{ user_details['ENROLLMENTNO'] }}</span></p>
+            <p>Student Name: <span id="student_name" contenteditable="true">{{ user_details['STUDENTNAME'] }}</span></p>
+            <p>Father's Name: <span id="father_name" contenteditable="true">{{ user_details['FATHERNAME'] }}</span></p>
+            <p>Program: <span id="program" contenteditable="true">{{ user_details['PROGRAM'] }}</span></p>
+            <p>Branch: <span id="branch" contenteditable="true">{{ user_details['BRANCH'] }}</span></p>
+            <p>Passout Year: <span id="passout_year" contenteditable="true">{{ user_details['PASSOUT YEAR'] }}</span></p>
+            <p>Date of Birth: <span id="birth_date" contenteditable="true">{{ user_details['BIRTH DATE'] }}</span></p>
+            <p>Email ID1: <span id="email_id1" contenteditable="true">{{ user_details['EMAIL ID1'] }}</span></p>
+            <p>Email ID2: <span id="email_id2" contenteditable="true">{{ user_details['EMAIL ID2'] }}</span></p>
+            <p>Contact No: <span id="contact_no" contenteditable="true">{{ user_details['CONTACT NO.'] }}</span></p>
+            <p>WhatsApp No: <span id="whatsapp_no" contenteditable="true">{{ user_details['WHATSAPP NO.'] }}</span></p>
+            <p>Home State: <span id="home_state" contenteditable="true">{{ user_details['HOME STATE'] }}</span></p>
+            <p>LinkedIn Page: <a id="linkedin_page" contenteditable="true" href="{{ user_details['LINKEDIN PAGE'] }}" target="_blank">{{ user_details['LINKEDIN PAGE'] }}</a></p>
+            <p>Last Update Date: <span id="last_update_date" contenteditable="true">{{ user_details['LAST UPDATE DATE'] }}</span></p>
+            <p>Current Designation: <span id="current_designation" contenteditable="true">{{ user_details['CURRENT DESIGNATION'] }}</span></p>
+            <p>Company: <span id="company" contenteditable="true">{{ user_details['COMPANY'] }}</span></p>
+            <p>City: <span id="city" contenteditable="true">{{ user_details['CITY'] }}</span></p>
+            <p>Country: <span id="country" contenteditable="true">{{ user_details['COUNTRY'] }}</span></p>
+            <p>Degree Name: <span id="degree_name" contenteditable="true">{{ user_details['DEGREE NAME'] }}</span></p>
+            <p>Branch/Specialization: <span id="branch_specialization" contenteditable="true">{{ user_details['BRANCH/SPECIALIZATION'] }}</span></p>
+            <p>Institute Name: <span id="institute_name" contenteditable="true">{{ user_details['INSTITUTE NAME'] }}</span></p>
+            <p>City: <span id="institute_city" contenteditable="true">{{ user_details['CITY'] }}</span></p>
+            <p>Country: <span id="institute_country" contenteditable="true">{{ user_details['COUNTRY'] }}</span></p>
+            <p>Joining Year: <span id="joining_year" contenteditable="true">{{ user_details['JOINING YEAR'] }}</span></p>
+            <p>Completion Year: <span id="completion_year" contenteditable="true">{{ user_details['COMPLETION YEAR'] }}</span></p>
+            <p>Highest Degree Name: <span id="highest_degree_name" contenteditable="true">{{ user_details['HIGHEST DEGREE NAME'] }}</span></p>
+            <p>HD Branch/Specialization: <span id="hd_branch_specialization" contenteditable="true">{{ user_details['HD BRANCH/SPECIALIZATION'] }}</span></p>
+            <p>HD Institute Name: <span id="hd_institute_name" contenteditable="true">{{ user_details['HD INSTITUTE NAME'] }}</span></p>
+            <p>HD City: <span id="hd_city" contenteditable="true">{{ user_details['HD CITY'] }}</span></p>
+            <p>HD Country: <span id="hd_country" contenteditable="true">{{ user_details['HD COUNTRY'] }}</span></p>
+            <p>HD Joining Year: <span id="hd_joining_year" contenteditable="true">{{ user_details['HD JOINING YEAR'] }}</span></p>
+            <p>HD Completion Year: <span id="hd_completion_year" contenteditable="true">{{ user_details['HD COMPLETION YEAR'] }}</span></p>
             <button type="submit" id="updateButton">Update</button>
         </form>
     </div>
-    
-   
 </body>
 </html>
