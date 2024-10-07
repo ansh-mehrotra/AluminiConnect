@@ -1,5 +1,5 @@
 
-document.getElementById('emailForm').addEventListener('submit', function(event) {
+document.getElementById('updateForm').addEventListener('submit', function(event) {
     event.preventDefault();
 
     const email = document.getElementById('email').value;
