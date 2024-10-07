@@ -1,5 +1,5 @@
 
-from flask import Flask, request, jsonify, render_template
+from flask import Flask, request, jsonify, render_template, redirect, url_for, flash
 import pandas as pd
 
 app = Flask(__name__)
@@ -12,38 +12,44 @@ def save_data(df):
     # Save the updated data to the Excel file
     df.to_excel('students.xlsx', index=False)
 
-@app.route('/', methods=['GET', 'POST'])
-def index():
-    user_details = None
-    if request.method == 'POST':
-        dob = request.form.get('birth_date')
-        fathers_name = request.form.get('father_name')
-        email = request.form.get('email_id1')
 
-        print(f"Received POST request with dob={dob}, fathers_name={fathers_name}, email={email}")
+#Added login route here in the main code
+@app.route('/', methods=['GET', 'POST'])
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        email = request.form.get('email')
+        dob = request.form.get('dob')
+        father_name = request.form.get('father_name')
 
         df = load_data()
 
-        # Check if columns exist in the DataFrame
+        # Check if the necessary columns exist in the DataFrame
         if 'EMAIL ID1' not in df.columns or 'BIRTH DATE' not in df.columns or 'FATHERNAME' not in df.columns:
             print("DataFrame columns:", df.columns)
-            return render_template('index.html', user_details=None, error="Required columns are missing in the data file.")
+            return render_template('login.html', error="Required columns are missing in the data file.")
 
-        # Build query conditions
+        # First check if the email is correctly identified
         if email:
             user_data = df[df['EMAIL ID1'] == email]
-        elif dob and fathers_name:
-            user_data = df[(df['BIRTH DATE'] == dob) & (df['FATHERNAME'] == fathers_name)]
-            print("founddd")
-        else:
-            user_data = pd.DataFrame()  # Empty DataFrame if no valid search criteria
+            if not user_data.empty:
+                return render_template('index.html', user_details=user_data.iloc[0].to_dict())  # Redirect to index.html after successful login
 
-        if not user_data.empty:
-            user_details = user_data.iloc[0].to_dict()
-        else:
-            user_details = None
-        
-    return render_template('index.html', user_details=user_details)
+        # If email is not provided or doesn't match, check if both dob and father's name are correct
+        if dob and father_name:
+            user_data = df[(df['BIRTH DATE'] == dob) & (df['FATHERNAME'] == father_name)]
+            if not user_data.empty:
+                return render_template('index.html',user_details=user_data.iloc[0].to_dict())  # Redirect to index.html after successful login
+
+        # If neither email nor dob + father's name match
+        flash('Invalid login credentials. Please try again.')
+        return render_template('login.html', email=email, dob=dob, father_name=father_name)
+
+    # For GET requests, just show the login page
+    return render_template('login.html')
+
+
+
 
 @app.route('/get-details', methods=['GET'])
 def get_details():
@@ -147,3 +153,12 @@ def update_details():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
+
+
+
+
+
+
+
+

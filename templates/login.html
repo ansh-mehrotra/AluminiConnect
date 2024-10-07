@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Slide Navbar</title>
+	<link rel="stylesheet" type="text/css" href="../static/login.css">
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+	<div class="main">  	
+		<input type="checkbox" id="chk" aria-hidden="true">
+
+			<div class="signup">
+				<form id="emailForm" method="POST">
+                    <label for="chk" aria-hidden="true">Login</label>
+                    <!-- <label for="email" ></label> -->
+                    <input type="text" id="email" name="email" value="{{ email }}" placeholder="Email">
+                    <!-- <label for="dob" ></label> -->
+                    <input type="text" id="dob" name="dob" value="{{ dob }}" placeholder="Date of Birth">
+                    <!-- <label for="fathers_name" ></label> -->
+                    <input type="text" id="fathers_name" name="fathers_name" value="{{ fathers_name }}" placeholder="Father's Name">
+            
+                    <input id="sub" type="submit" value="Search">
+                </form>
+			</div>
+
+			
+	</div>
+</body>
+</html>
