@@ -10,8 +10,18 @@
     
     <script src="{{ url_for('static', filename='script.js') }}" defer></script>
     <style>
-        body {
+        /* body {
             font-family: "Lato", sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url("{{ url_for('static', filename='banner.jpg') }}"); 
+            background-position: center; 
+            background-repeat: no-repeat; 
+            height: 100vh; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-attachment: fixed;
         }
 
         .sidenav {
@@ -65,12 +75,12 @@
             margin-bottom: 20px;
         }
 
-        /* Optional: Styles for the visible content section */
+       
         .content.active {
-            display: block; /* Show the active section */
+            display: block;
         }
         
-        /* Style for open/close buttons */
+        
         .openbtn {
             font-size: 20px; 
             cursor: pointer; 
@@ -82,7 +92,7 @@
             top: 20px; 
             left: 20px; 
             z-index: 2; 
-        }
+        } */
     </style>
 </head>
 <body>
@@ -103,11 +113,11 @@
 
 
 <!-- <div id="details" style="display: none;"> -->
-<div id="details">
+<div id="details" style="height: auto;">
         
     <form id="updateForm">
-        <div id="personalDetails" class="section content">
-            <h2>Personal Details</h2>
+        <div id="personalDetails" class="content">
+            <h3>Personal Details</h3>
             <p>Enrollment No: <span id="enrollment_no" contenteditable="true">{{ user_details['ENROLLMENTNO'] }}</span></p>
             <p>Student Name: <span id="student_name" contenteditable="true">{{ user_details['STUDENTNAME'] }}</span></p>
             <p>Father's Name: <span id="father_name" contenteditable="true">{{ user_details['FATHERNAME'] }}</span></p>
@@ -157,6 +167,11 @@
             <p>HD Joining Year: <span id="hd_joining_year" contenteditable="true">{{ user_details['HD JOINING YEAR'] }}</span></p>
             <p>HD Completion Year: <span id="hd_completion_year" contenteditable="true">{{ user_details['HD COMPLETION YEAR'] }}</span></p>
         </div>
+
+    
+
+
+
         <div>
 
             <button type="submit" id="update">Update</button>
