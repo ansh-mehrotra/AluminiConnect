@@ -1,4 +1,4 @@
-body{
+/* body{
 	margin: 0;
 	padding: 0;
 	display: flex;
@@ -71,7 +71,6 @@ button:hover{
 }
 
 
-/* Adding changes to input tag where id = "sub" */
 
 
 #sub{
@@ -127,5 +126,155 @@ button:hover{
 	transform: scale(1);	
 }
 #chk:checked ~ .signup label{
+	transform: scale(.6);
+} */
+
+
+body{
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	min-height: 100vh;
+	font-family: 'Jost', sans-serif;
+	background: linear-gradient(to bottom, #F4F4F2, #E8E8E8, #BBBFCA); /* New gradient colors */
+}
+
+/* Static bar */
+header {
+	width: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background-color: #495464; /* One of the color scheme */
+	padding: 10px 0;
+	box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar h1 {
+	color: #FEFAE0;
+	text-align: center;
+	margin: 0;
+	font-size: 24px;
+}
+
+.main {
+	width: 350px;
+	height: 500px;
+	overflow: hidden;
+	background: #E8E8E8; /* Light background for form */
+	border-radius: 10px;
+	box-shadow: 5px 20px 50px #000;
+	margin-top: 180px; /* Add margin-top to prevent overlap with the static bar */
+	position: relative;
+}
+
+/* Centering the logo */
+.logo-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 150px; /* Adjust height if necessary */
+}
+
+.logo-container img {
+	max-width: 80px;
+	max-height: 80px;
+}
+
+#chk {
+	display: none;
+}
+
+.signup {
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+
+label {
+	color: #573b8a;
+	font-size: 2.3em;
+	justify-content: center;
+	display: flex;
+	margin: 2px 50px;
+	font-weight: bold;
+	cursor: pointer;
+	transition: .5s ease-in-out;
+}
+
+.note {
+	position: fixed;
+	top: 180px; /* Right below the static bar */
+	left: 20px;
+	background-color: #BBBFCA; /* Soft lavender/gray */
+	color: #495464; /* Darker text */
+	padding: 10px;
+	border-radius: 5px;
+	box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+	font-size: 14px;
+}
+
+
+input {
+	width: 60%;
+	height: 10px;
+	background: #F4F4F2;
+	justify-content: center;
+	display: flex;
+	margin: 20px auto;
+	padding: 12px;
+	border: none;
+	outline: none;
+	border-radius: 5px;
+	color: #495464
+}
+
+#sub {
+	width: 60%;
+	height: 40px;
+	margin: 10px auto;
+	justify-content: center;
+	display: block;
+	color: #F4F4F2;
+	background: #495464;
+	font-size: 1em;
+	font-weight: bold;
+	margin-top: 30px;
+	outline: none;
+	border: none;
+	border-radius: 5px;
+	transition: .2s ease-in;
+	cursor: pointer;
+}
+
+#sub:hover {
+	background: #BBBFCA;
+}
+
+.login {
+	height: 460px;
+	background: #E8E8E8;
+	border-radius: 60% / 10%;
+	transform: translateY(-180px);
+	transition: .8s ease-in-out;
+}
+
+.login label {
+	color: #495464;
+	transform: scale(.6);
+}
+
+#chk:checked ~ .login {
+	transform: translateY(-500px);
+}
+
+#chk:checked ~ .login label {
+	transform: scale(1);
+}
+
+#chk:checked ~ .signup label {
 	transform: scale(.6);
 }
