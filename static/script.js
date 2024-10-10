@@ -4,13 +4,13 @@ document.getElementById('updateForm').addEventListener('submit', function(event)
 
     const email = document.getElementById('email').value;
     const dob = document.getElementById('dob').value;
-    const fathers_name = document.getElementById('fathers_name').value;
+    const father_name = document.getElementById('father_name').value;
 
     const queryParams = new URLSearchParams();
     if (email) queryParams.append('email', email);
-    if (dob && fathers_name) {
+    if (dob && father_name) {
         queryParams.append('dob', dob);
-        queryParams.append('fathers_name', fathers_name);
+        queryParams.append('father_name', father_name);
     }
 
     fetch(`/get-details?${queryParams.toString()}`)

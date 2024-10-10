@@ -23,7 +23,7 @@ def login():
         father_name = request.form.get('father_name')
 
         df = load_data()
-
+        print(dob,father_name)
         # Check if the necessary columns exist in the DataFrame
         if 'EMAIL ID1' not in df.columns or 'BIRTH DATE' not in df.columns or 'FATHERNAME' not in df.columns:
             print("DataFrame columns:", df.columns)
@@ -37,10 +37,14 @@ def login():
 
         # If email is not provided or doesn't match, check if both dob and father's name are correct
         if dob and father_name:
-            user_data = df[(df['BIRTH DATE'] == dob) & (df['FATHERNAME'] == father_name)]
+            user_data = df[(df['BIRTH DATE'] == dob.strip()) & (df['FATHERNAME'] == father_name.strip())]
             if not user_data.empty:
-                return render_template('index.html',user_details=user_data.iloc[0].to_dict())  # Redirect to index.html after successful login
+                return render_template('index.html',user_details=user_data.iloc[0].to_dict())
+            else:
+                print("no user details")
+                return  # Redirect to index.html after successful login
 
+        print("Reached here");
         # If neither email nor dob + father's name match
         flash('Invalid login credentials. Please try again.')
         return render_template('login.html', email=email, dob=dob, father_name=father_name)
