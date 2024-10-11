@@ -43,12 +43,12 @@
 
 
 <!-- <div id="details" style="display: none;"> -->
-<div id="details" style="height: auto; margin-top: 150px;">
+ <div id="details" style="height: auto; margin-top: 150px;">
         
     <form id="updateForm">
         <div id="personalDetails" class="content" style="display: none; ">
             <h3>Personal Details</h3>
-            <p>Enrollment No: <span id="enrollment_no" contenteditable="true">{{ user_details['ENROLLMENTNO'] }}</span></p>
+            <p>Enrollment No: <span id="enrollment_no" contenteditable="true">{{ user_details['ENROLLMENTNO'] }} </span></p>
             <p>Student Name: <span id="student_name" contenteditable="true">{{ user_details['STUDENTNAME'] }}</span></p>
             <p>Father's Name: <span id="father_name" contenteditable="true">{{ user_details['FATHERNAME'] }}</span></p>
             <p>Date of Birth: <span id="birth_date" contenteditable="true">{{ user_details['BIRTH DATE'] }}</span></p>
@@ -107,13 +107,36 @@
 
 
 
-        <!-- <div>
-
-            <button type="submit" id="update" style="display: none;">Update</button>
-        </div> -->
+        
         
     </form>
-</div>
+</div> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <script>
     function openNav() {

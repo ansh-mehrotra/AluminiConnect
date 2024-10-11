@@ -40,7 +40,10 @@ header {
   left: 0;
   background-color: #222;
   overflow-x: hidden;
+
+  /* Make changes in the below transition property */
   transition: width 0.5s ease;
+  
   padding-top: 60px;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
 }
@@ -109,6 +112,26 @@ header {
   margin-bottom: 40px;
   text-align: center;
 }
+
+
+
+#personalDetails, #eduDetails, #jobDetails, #advStudyDetails, #highestStudyDetails{
+  text-align: left;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .content.active {
   display: block;
@@ -198,7 +221,7 @@ header {
   left: 0;
   background-color: var(--primary-text); /* Dark slate blue */
   overflow-x: hidden;
-  transition: width 0.5s ease;
+  /* transition: width 0.5s ease; */
   padding-top: 60px;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
 }
@@ -266,6 +289,45 @@ header {
 .content.active {
   display: block;
 }
+
+
+#details span[contenteditable="true"] {
+  display: inline-block;
+  padding: 5px;
+  
+  border: 1px solid #ccc; 
+  border-radius: 5px;
+  background-color: #F4F4F2; 
+  transition: box-shadow 0.3s ease, background-color 0.3s ease;
+  
+}
+
+
+#details span[contenteditable="true"]:hover {
+  background-color: #F4F4F2; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
+
+#details a[contenteditable="true"] {
+  text-decoration: none;
+  color: #007bff;
+  border: 1px solid #ccc; 
+  border-radius: 5px;
+  padding: 5px;
+  transition: box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+
+#details a[contenteditable="true"]:hover {
+  background-color: #F4F4F2;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+} 
+
+
+/* Grid layout for the details section */
+
+
 
 /* Responsive styles */
 @media (max-width: 768px) {
