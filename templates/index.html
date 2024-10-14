@@ -66,7 +66,31 @@
                 <h1>Education Details @ JUIT</h1>
                 <p>Program: <span id="program" contenteditable="true">{{ user_details['PROGRAM'] }}</span></p>
                 <p>Branch: <span id="branch" contenteditable="true">{{ user_details['BRANCH'] }}</span></p>
-                <p>Passout Year: <span id="passout_year" contenteditable="true">{{ user_details['PASSOUT YEAR'] }}</span></p>
+
+
+                <!-- <p>Passout Year: <span id="passout_year" contenteditable="true">{{ user_details['PASSOUT YEAR'] }}</span></p> -->
+                <!-- ADDED DROPDOWN BELOW -->
+                <p>Passout Year: 
+                    <select id="passout_year">
+                        <script>
+                            var currentYear = new Date().getFullYear();
+                            var selectedYear = "{{ user_details['PASSOUT YEAR'] }}"; // pre-select passout year
+                            selectedYear = parseInt(selectedYear, 10);
+                            for (var year = 2000; year <= currentYear; year++) {
+                                var option = document.createElement('option');
+                                option.value = year;
+                                option.text = year;
+                                if (year == selectedYear) {
+                                    option.selected = true;
+                                }
+                                document.getElementById('passout_year').appendChild(option);
+                            }
+                        </script>
+                    </select>
+                </p>
+
+
+                
                 <button type="submit" id="update">Update</button>
             </div>
     
@@ -86,7 +110,29 @@
                 <p>Institute Name: <span id="institute_name" contenteditable="true">{{ user_details['INSTITUTE NAME'] }}</span></p>
                 <p>City: <span id="institute_city" contenteditable="true">{{ user_details['CITY'] }}</span></p>
                 <p>Country: <span id="institute_country" contenteditable="true">{{ user_details['COUNTRY'] }}</span></p>
-                <p>Joining Year: <span id="joining_year" contenteditable="true">{{ user_details['JOINING YEAR'] }}</span></p>
+
+
+                <!-- <p>Joining Year: <span id="joining_year" contenteditable="true">{{ user_details['JOINING YEAR'] }}</span></p> -->
+                 <!-- ADDED DROPDOWN BELOW -->
+                <p>Joining Year: 
+                    <select id="joining_year">
+                        <script>
+                            var currentYear = new Date().getFullYear();
+                            var selectedYear = "{{ user_details['JOINING YEAR'] }}"; // pre-select passout year
+                            selectedYear = parseInt(selectedYear, 10);
+                            for (var year = 2000; year <= currentYear; year++) {
+                                var option = document.createElement('option');
+                                option.value = year;
+                                option.text = year;
+                                if (year == selectedYear) {
+                                    option.selected = true;
+                                }
+                                document.getElementById('joining_year').appendChild(option);
+                            }
+                        </script>
+                    </select>
+                </p> 
+
                 <p>Completion Year: <span id="completion_year" contenteditable="true">{{ user_details['COMPLETION YEAR'] }}</span></p>
                 <button type="submit" id="update">Update</button>
             </div>

@@ -72,7 +72,8 @@ document.getElementById('updateForm').addEventListener('submit', function(event)
         formData.append('FATHERNAME', document.getElementById('father_name').innerText);
         formData.append('PROGRAM', document.getElementById('program').innerText);
         formData.append('BRANCH', document.getElementById('branch').innerText);
-        formData.append('PASSOUT YEAR', document.getElementById('passout_year').innerText);
+        // formData.append('PASSOUT YEAR', document.getElementById('passout_year').innerText);
+        formData.append('PASSOUT YEAR', document.getElementById('passout_year').value);
         formData.append('BIRTH DATE', document.getElementById('birth_date').innerText);
         formData.append('EMAIL ID1', document.getElementById('email_id1').innerText);
         formData.append('EMAIL ID2', document.getElementById('email_id2').innerText);
@@ -90,7 +91,9 @@ document.getElementById('updateForm').addEventListener('submit', function(event)
         formData.append('INSTITUTE NAME', document.getElementById('institute_name').innerText);
         formData.append('INSTITUTE CITY', document.getElementById('institute_city').innerText);
         formData.append('INSTITUTE COUNTRY', document.getElementById('institute_country').innerText);
-        formData.append('JOINING YEAR', document.getElementById('joining_year').innerText);
+        // formData.append('JOINING YEAR', document.getElementById('joining_year').innerText);
+        formData.append('JOINING YEAR', document.getElementById('joining_year').value);
+
         formData.append('COMPLETION YEAR', document.getElementById('completion_year').innerText);
         formData.append('HIGHEST DEGREE NAME', document.getElementById('highest_degree_name').innerText);
         formData.append('HD BRANCH/SPECIALIZATION', document.getElementById('hd_branch_specialization').innerText);
