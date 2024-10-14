@@ -101,18 +101,23 @@ header {
 
 /* Form content styles */
 .content {
-  margin: 0 auto;
+  /* margin: 0 auto; */
   /* margin-top: 150px; */
-  padding: 30px;
+  /* padding: 30px; */
   font-size: 16px;
   background-color: #E8E8E8;
-  width: 80%;
+  width: 100%;
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   margin-bottom: 40px;
   text-align: center;
 }
 
+.content h1{
+  text-align: center;
+  background-color: #495464;
+  color: white;
+}
 
 
 #personalDetails, #eduDetails, #jobDetails, #advStudyDetails, #highestStudyDetails{
@@ -152,6 +157,7 @@ header {
 #update:hover {
   background-color: #BBBFCA;
 }
+
 
 :root {
   --primary-bg: #F4F4F2;
@@ -268,7 +274,7 @@ header {
   cursor: pointer;
 }
 
-#update:hover {
+#updateForm:hover {
   background-color: var(--secondary-text); /* Soft lavender-gray on hover */
 }
 
@@ -295,7 +301,7 @@ header {
   display: inline-block;
   padding: 5px;
   
-  border: 1px solid #ccc; 
+  border: 1px solid #a283d4; 
   border-radius: 5px;
   background-color: #F4F4F2; 
   transition: box-shadow 0.3s ease, background-color 0.3s ease;
@@ -311,7 +317,7 @@ header {
 
 #details a[contenteditable="true"] {
   text-decoration: none;
-  color: #007bff;
+  color: #495464;
   border: 1px solid #ccc; 
   border-radius: 5px;
   padding: 5px;
